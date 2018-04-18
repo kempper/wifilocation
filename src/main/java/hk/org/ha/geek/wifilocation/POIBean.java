@@ -10,11 +10,11 @@ public class POIBean {
 	private String poiName;
 	private List<Pair> actions;
 		
-	public String getId() {
-		return id;
+	public String getRegionId() {
+		return regionId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setRegionId(String regionId) {
+		this.regionId = regionId;
 	}
 	public String getPoiName() {
 		return poiName;
