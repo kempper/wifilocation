@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class POIBean {
 
-	private String id;
+	private String regionId;
 	private String poiName;
 	private List<Pair> actions;
 		
@@ -43,6 +43,7 @@ public class POIBean {
 	private class Pair {
 		private String returnType;
 		private String returnValue;
+		private String isSameDayEvent;
 		
 		public String getReturnType() {
 			return returnType;
@@ -55,6 +56,14 @@ public class POIBean {
 		}
 		public void setReturnValue(String returnValue) {
 			this.returnValue = returnValue;
+		}
+		
+		public String getIsSameDayEvent() {
+			return isSameDayEvent;
+		}
+		
+		public void setIsSameDayEvent(String isSameDayEvent) {
+			this.isSameDayEvent = isSameDayEvent;
 		}
 	
 	}

@@ -47,28 +47,19 @@ public class WifiLocationController {
     		}
     		
     		
-    		/*
     		StringBuilder contentBuilder = new StringBuilder();
     		try {
 
-    			//File file = new ClassPathResource("welcome.html").getFile();
-    		    BufferedReader in = new BufferedReader(new FileReader("D:\\Project\\SpringBootApp\\wifilocation\\src\\main\\resources\\welcome.html"));
+    		    BufferedReader in = new BufferedReader(new FileReader("/home/pbrcadm/projects/poi_list.csv"));
     		    String str;
     		    while ((str = in.readLine()) != null) {
-    		        contentBuilder.append(str);
-    		        System.out.println(str);
+    		        String[] poi = str.split(",");
+    		        System.out.print(str+"="+str[0]+"; "+str[1]+"; "+str[2]);
     		    }
     		    in.close();
     		} catch (IOException e) {
     		}
-    		String content = contentBuilder.toString();
-    		
-    		bean.setReturnType("HTML");
-    		bean.setReturnValue(content);    				
-    		*/
-    		
-    		
-    		
+
     		json = mapper.writeValueAsString(bean);
     		
 		} catch (JsonProcessingException e) {
