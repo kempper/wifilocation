@@ -30,7 +30,7 @@ public class WifiLocationController {
     	try {    
     		
     		POIBean bean = new POIBean();
-    		bean.setId(id);    		
+    		bean.setRegionId(id);    		
     		
     		if(id.equals("HAB-0001")) {
     			bean.setPoiName("Leature Theatre");
