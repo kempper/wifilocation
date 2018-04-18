@@ -54,7 +54,7 @@ public class WifiLocationController {
     		    String str;
     		    while ((str = in.readLine()) != null) {
     		        String[] poi = str.split(",");
-    		        System.out.print(str+"="+str[0]+"; "+str[1]+"; "+str[2]);
+    		        System.out.print(str+"="+poi[0]+"; "+poi[1]+"; "+poi[2]);
     		    }
     		    in.close();
     		} catch (IOException e) {
