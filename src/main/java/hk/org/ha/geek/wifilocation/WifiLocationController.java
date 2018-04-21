@@ -73,10 +73,10 @@ public class WifiLocationController {
     		}
     		
             
-            String[] poi = poiMap.get(id);
-            String[] event = eventMap.get(id);
+            String[] poi = (String[])poiMap.get(id);
+            String[] event = (String[])eventMap.get(id);
             
-            PoiBean bean = new PoiBean();
+    		POIBean bean = new POIBean();
             bean.setRegionId(id);
             bean.setPoiName(poi[1]);
             bean.setActions(event[1],event[2],event[3]);
