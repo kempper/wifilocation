@@ -53,7 +53,7 @@ public class WifiLocationController {
 
                     if(isSameDayEvent!=null&&isSameDayEvent.equals("T")) {
                         if(isSameDayEvent.equals(event[3])) {
-                            bean = eventMap.get(event[3]);
+                            bean = (POIBean)eventMap.get(event[3]);
                             if(bean == null) {
                                 bean = new POIBean();
                                 bean.setRegionId(event[0]);
@@ -65,7 +65,7 @@ public class WifiLocationController {
                         }
                     }
                     else {
-                        bean = eventMap.get(event[3]);
+                        bean = (POIBean)eventMap.get(event[3]);
                         if(bean == null) {
                             bean = new POIBean();
                             bean.setRegionId(event[0]);
@@ -73,7 +73,7 @@ public class WifiLocationController {
                         }
                         
                         bean.setActions(event[1],event[2],event[3]);
-                        eventMap.put(event[0],bean);
+                        eventMap.put(event[0], bean);
                     }
     		    }
     		    
