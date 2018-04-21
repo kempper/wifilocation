@@ -141,7 +141,7 @@ public class WifiLocationController {
 
     		    while ((str = in2.readLine()) != null) {
     		        String[] event = str.split(",");
-    		        if(event[0].equals(bean.getRegionId)) {
+    		        if(event[0].equals(bean.getRegionId())) {
                         bean.setActions(event[1],event[2],event[3]);
     		        }
     		    }
