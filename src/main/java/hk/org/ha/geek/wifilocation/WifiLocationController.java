@@ -31,7 +31,7 @@ public class WifiLocationController {
     		
     		POIBean bean = new POIBean();
     		bean.setRegionId(id);    		
-    		
+    		/*
     		if(id.equals("HAB-0001")) {
     			bean.setPoiName("Leature Theatre");
     			bean.setActions("MSG","Auto Check-in completed.");
@@ -45,22 +45,41 @@ public class WifiLocationController {
     			bean.setActions("URL","http://www.ha.org.hk/vistor/ha_index/asp");
     			bean.setActions("EVENT", "Blood Donation Campaign||2018-02-24 13:00||2018-02-24 17:30");
     		}
-    		
-    		HashMap map = new HashMap();
+    		*/
+    		HashMap poiMap = new HashMap();
+    		HashMap eventMap = new HashMap();
+
     		StringBuilder contentBuilder = new StringBuilder();
     		try {
 
     		    BufferedReader in = new BufferedReader(new FileReader("/home/pbrcadm/projects/poi_list.csv"));
+    		    BufferedReader in2 = new BufferedReader(new FileReader("/home/pbrcadm/projects/event_list.csv"));
+
     		    String str;
     		    while ((str = in.readLine()) != null) {
     		        String[] poi = str.split(",");
     		        System.out.println(poi[0]+"; "+poi[1]+"; "+poi[2]);
-    		        map.add(poi[0], poi);
+    		        poiMap.add(poi[0], poi);
     		    }
+    		    
+    		    while ((str = in2.readLine()) != null) {
+    		        String[] event = str.split(",");
+    		        poiMap.add(event[0], event);
+    		    }
+    		    
     		    in.close();
     		} catch (IOException e) {
     		}
-
+    		
+            
+            String[] poi = poiMap.get(id);
+            String[] event = eventMap.get(id);
+            
+            PoiBean bean = new PoiBean();
+            bean.setRegionId(id);
+            bean.setPoiName(poi[1]);
+            bean.setActions(event[1],event[2],event[3]);
+            
     		json = mapper.writeValueAsString(bean);
     		
 		} catch (JsonProcessingException e) {
