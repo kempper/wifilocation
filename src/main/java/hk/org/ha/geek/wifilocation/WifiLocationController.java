@@ -30,7 +30,7 @@ public class WifiLocationController {
     	ObjectMapper mapper = new ObjectMapper();
     	try {    
     		
-    		HashMap eventMap = new ArrayList();
+    		HashMap eventMap = new HashMap();
     		HashMap poiMap = new HashMap();
 
     		StringBuilder contentBuilder = new StringBuilder();
