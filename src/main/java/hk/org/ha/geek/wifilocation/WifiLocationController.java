@@ -61,7 +61,7 @@ public class WifiLocationController {
                             }
                             
                             bean.setActions(event[1],event[2],event[3]);
-                            eventMap.put(bean);
+                            eventMap.put(event[0], bean);
                         }
                     }
                     else {
@@ -73,7 +73,7 @@ public class WifiLocationController {
                         }
                         
                         bean.setActions(event[1],event[2],event[3]);
-                        eventMap.put(bean);
+                        eventMap.put(event[0],bean);
                     }
     		    }
     		    
@@ -81,7 +81,7 @@ public class WifiLocationController {
     		} catch (IOException e) {
     		}
     		
-    		json = mapper.writeValueAsString(eventList);
+    		json = mapper.writeValueAsString(eventMap);
     		
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
