@@ -53,7 +53,7 @@ public class WifiLocationController {
                     bean.setPoiName(poi[1]);
                     bean.setActions(event[1],event[2],event[3]);
                     if(isSameDayEvent!=null&&isSameDayEvent.equals("T")) {
-                        if(isSameDayEvent.equals[event[3]) {
+                        if(isSameDayEvent.equals(event[3])) {
                             eventList.add(bean);
                         }
                     }
