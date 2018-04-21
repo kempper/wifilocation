@@ -65,7 +65,7 @@ public class WifiLocationController {
     		    
     		    while ((str = in2.readLine()) != null) {
     		        String[] event = str.split(",");
-    		        eventMap.add(event[0], event);
+    		        eventMap.put(event[0], event);
     		    }
     		    
     		    in.close();
