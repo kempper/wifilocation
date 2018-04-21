@@ -30,7 +30,7 @@ public class WifiLocationController {
     	ObjectMapper mapper = new ObjectMapper();
     	try {    
     		
-    		List eventList = new ArrayList();
+    		HashMap eventMap = new ArrayList();
     		HashMap poiMap = new HashMap();
 
     		StringBuilder contentBuilder = new StringBuilder();
@@ -39,7 +39,7 @@ public class WifiLocationController {
     		    BufferedReader in = new BufferedReader(new FileReader("/home/pbrcadm/projects/poi_list.csv"));
     		    BufferedReader in2 = new BufferedReader(new FileReader("/home/pbrcadm/projects/event_list.csv"));
 
-                POIBean bean = new POIBean();
+                POIBean bean;
 
     		    String str;
     		    while ((str = in.readLine()) != null) {
@@ -50,16 +50,30 @@ public class WifiLocationController {
     		    while ((str = in2.readLine()) != null) {
     		        String[] event = str.split(",");
                     String[] poi = (String[])poiMap.get(event[0]);
-                    bean.setRegionId(event[0]);
-                    bean.setPoiName(poi[1]);
-                    bean.setActions(event[1],event[2],event[3]);
+
                     if(isSameDayEvent!=null&&isSameDayEvent.equals("T")) {
                         if(isSameDayEvent.equals(event[3])) {
-                            eventList.add(bean);
+                            bean = eventMap.get(event[3]);
+                            if(bean == null) {
+                                bean = new POIBean();
+                                bean.setRegionId(event[0]);
+                                bean.setPoiName(poi[1]);
+                            }
+                            
+                            bean.setActions(event[1],event[2],event[3]);
+                            eventMap.put(bean);
                         }
                     }
                     else {
-                        eventList.add(bean);
+                        bean = eventMap.get(event[3]);
+                        if(bean == null) {
+                            bean = new POIBean();
+                            bean.setRegionId(event[0]);
+                            bean.setPoiName(poi[1]);
+                        }
+                        
+                        bean.setActions(event[1],event[2],event[3]);
+                        eventMap.put(bean);
                     }
     		    }
     		    
