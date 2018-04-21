@@ -118,6 +118,9 @@ public class WifiLocationController {
     		HashMap poiMap = new HashMap();
     		HashMap eventMap = new HashMap();
 
+        	POIBean bean = new POIBean();
+
+
     		StringBuilder contentBuilder = new StringBuilder();
     		try {
 
@@ -131,23 +134,21 @@ public class WifiLocationController {
     		        poiMap.put(poi[0], poi);
     		    }
     		    
+    		    String[] poi = (String[])poiMap.get(id);
+                
+                bean.setRegionId(id);
+                bean.setPoiName(poi[1]);
+
     		    while ((str = in2.readLine()) != null) {
     		        String[] event = str.split(",");
-    		        eventMap.put(event[0], event);
+    		        if(event[0].equals(bean.getRegionId)) {
+                        bean.setActions(event[1],event[2],event[3]);
+    		        }
     		    }
     		    
     		    in.close();
     		} catch (IOException e) {
     		}
-    		
-            
-            String[] poi = (String[])poiMap.get(id);
-            String[] event = (String[])eventMap.get(id);
-            
-    		POIBean bean = new POIBean();
-            bean.setRegionId(id);
-            bean.setPoiName(poi[1]);
-            bean.setActions(event[1],event[2],event[3]);
             
     		json = mapper.writeValueAsString(bean);
     		
