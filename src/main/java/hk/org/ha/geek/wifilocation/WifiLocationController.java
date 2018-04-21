@@ -60,12 +60,12 @@ public class WifiLocationController {
     		    while ((str = in.readLine()) != null) {
     		        String[] poi = str.split(",");
     		        System.out.println(poi[0]+"; "+poi[1]+"; "+poi[2]);
-    		        poiMap.add(poi[0], poi);
+    		        poiMap.put(poi[0], poi);
     		    }
     		    
     		    while ((str = in2.readLine()) != null) {
     		        String[] event = str.split(",");
-    		        poiMap.add(event[0], event);
+    		        eventMap.add(event[0], event);
     		    }
     		    
     		    in.close();
