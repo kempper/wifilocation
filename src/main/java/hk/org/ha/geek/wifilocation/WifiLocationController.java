@@ -46,7 +46,7 @@ public class WifiLocationController {
     			bean.setActions("EVENT", "Blood Donation Campaign||2018-02-24 13:00||2018-02-24 17:30");
     		}
     		
-    		
+    		HashMap map = new HashMap();
     		StringBuilder contentBuilder = new StringBuilder();
     		try {
 
@@ -54,7 +54,8 @@ public class WifiLocationController {
     		    String str;
     		    while ((str = in.readLine()) != null) {
     		        String[] poi = str.split(",");
-    		        System.out.print(str+"="+poi[0]+"; "+poi[1]+"; "+poi[2]);
+    		        System.out.println(poi[0]+"; "+poi[1]+"; "+poi[2]);
+    		        map.add(poi[0], poi);
     		    }
     		    in.close();
     		} catch (IOException e) {

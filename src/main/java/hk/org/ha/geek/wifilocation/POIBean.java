@@ -27,10 +27,11 @@ public class POIBean {
 		return actions;	
 	}
 
-	public void setActions(String returnType, String returnValue) {
+	public void setActions(String returnType, String returnValue, String isSameDayEvent) {
 		Pair pair = new Pair();
 		pair.setReturnType(returnType);
 		pair.setReturnValue(returnValue);
+		pair.setIsSameDayEvent(isSameDayEvent);
 		List<Pair> newActions = this.actions;
 		if(newActions==null) {
 			newActions = new ArrayList<Pair>();
