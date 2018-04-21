@@ -1,5 +1,6 @@
 package hk.org.ha.geek.wifilocation;
 
+import java.util.HashMap;
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,9 +30,9 @@ public class WifiLocationController {
     	ObjectMapper mapper = new ObjectMapper();
     	try {    
     		
+    		/*
     		POIBean bean = new POIBean();
     		bean.setRegionId(id);    		
-    		/*
     		if(id.equals("HAB-0001")) {
     			bean.setPoiName("Leature Theatre");
     			bean.setActions("MSG","Auto Check-in completed.");
